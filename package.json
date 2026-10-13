@@ -1,0 +1,21 @@
+{
+  "name": "@lspdesign/node-memory",
+  "version": "0.1.0",
+  "description": "Remember the Node.js version you chose for each project and restore it with zsh and nvm.",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/orbitlog/node-memory.git" },
+  "homepage": "https://github.com/orbitlog/node-memory#readme",
+  "bugs": { "url": "https://github.com/orbitlog/node-memory/issues" },
+  "bin": { "node-memory": "bin/node-memory.js" },
+  "files": ["bin/", "src/", "shell/", "README.md", "README.zh-CN.md", "LICENSE", "CHANGELOG.md"],
+  "engines": { "node": ">=14.20.0" },
+  "keywords": ["node", "nvm", "zsh", "version-manager", "cli"],
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "NODE_MEMORY_REAL_NVM=1 node --test tests/real-nvm.test.js",
+    "test:package": "node scripts/smoke-package.js",
+    "check": "node scripts/check.js",
+    "prepublishOnly": "npm run check && npm test"
+  },
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }
+}
